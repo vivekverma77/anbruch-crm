@@ -1,0 +1,438 @@
+<!--dynamic table-->
+<link rel="stylesheet" href="<?php echo base_url() ?>static/js/advanced-datatable/css/demo_page.css" />
+<link rel="stylesheet" href="<?php echo base_url() ?>static/js/advanced-datatable/css/demo_table.css" />
+<link rel="stylesheet" href="<?php echo base_url() ?>static/js/data-tables/DT_bootstrap.css" />
+<!--dynamic table-->
+<script type="text/javascript" src="<?php echo base_url() ?>static/js/advanced-datatable/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>static/js/data-tables/DT_bootstrap.js"></script>
+<!--dynamic table initialization -->
+<!--<script src="<?php /*echo base_url() */?>static/js/dynamic_table_init.js"></script>-->
+
+<link href="<?php echo base_url() ?>static/select2/dist/css/select2.min.css" rel="stylesheet" />
+<script src="<?php echo base_url() ?>static/select2/dist/js/select2.min.js"></script>
+<style>
+	.ui-datepicker-calendar {
+    display: none;
+	}
+	.ui-datepicker-header {
+		background: #1FB5AD;
+	}
+</style>
+
+<section id="main-content">
+	<section class="wrapper" style="width: auto; min-width: 100%;">
+
+		<div class="row">
+			<div class="col-sm-12">
+					<section class="panel">
+							<header class="panel-heading">
+									<span class="module_head">Payroll &nbsp;|&nbsp;</span>
+									<label for="us">Showing for Date </label>
+
+									<input name="startDate" id="startDate" class="date-picker" value="<?php echo $startDate; ?>" style="padding: 5px;">
+									
+							</header>
+							<div class="panel-body">
+								
+									<?php $this->load->view('common/alert'); ?>
+
+									       <div class="adv-table">
+                            <div class="clearfix">
+                                <div class="btn-group">
+                                    <button id="checkboxSelect" onclick="selectAll()" class="btn btn-primary">Select All</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Bulk Action <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a onclick="bulkActionOnUser('1', 'activate')" href="#">Activate These Users</a></li>
+                                        <li><a onclick="bulkActionOnUser('0', 'deactivate')" href="#">Deactivate These Users</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <form id="record_list_table">
+                                <table class="display table table-bordered table-striped table-condensed" id="dynamic-table">
+                                    <thead>
+                                    <tr>
+                                        <th style="text-align: center;">Select Record</th>
+                                        <!--th style="text-align: center;">Actions</th-->
+                                        <th style="text-align: center;">Name</th>
+                                        <th style="text-align: center;">Email</th>
+<!--
+                                        <th style="text-align: center;">Role</th>
+-->
+                                        <th style="text-align: center;">Salary</th>
+                                        <th style="text-align: center;">Working Days</th>
+                                        <th style="text-align: center;">Final Pay</th>
+                                        
+                                        <!--th style="text-align: center;">User Created On</th>
+                                        <th style="text-align: center;">Last Logged In</th-->
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    foreach ($users_list as $key => $user) {
+                                        $uid = $user["id"];
+                                        ?>
+                                        <tr>
+																					
+                                            <td class="center"><input type="checkbox" value="<?php echo $uid; ?>" id="<?php echo $uid; ?>"/></td>
+                                            
+                                            <!--td class="center">
+																								<a class="list_link" href="<?php echo base_url() ?>index.php/UserManagement/editUser?id=<?php echo $uid ?>">Edit</a> |
+																								
+																								<?php if ($userStatus == 0) { ?>
+                                                <a class="list_link" onclick="actionOnUser('<?php echo $uid ?>', '<?php echo $user["email"]; ?>', '1', 'activate');" href="#">Activate</a> |
+                                                <?php } ?>
+                                                
+                                                <a class="list_link" onclick="actionOnUser('<?php echo $uid ?>', '<?php echo $user["email"]; ?>', '-1', 'reset the password of');" href="#">Password Reset</a>
+                                                
+                                                <?php if ($userStatus == 1) { ?>
+                                                |
+                                                <a class="list_link" onclick="actionOnUser('<?php echo $uid ?>', '<?php echo $user["email"]; ?>', '0', 'deactivate');" href="#">Deactivate</a>
+                                                <?php } ?>
+                                                                                                
+                                                |
+                                                <a class="list_link" href="<?php echo base_url() ?>index.php/UserManagement/deleteUser?id=<?php echo $uid ?>" onclick="return confirm('Are you sure to delete user permanently?')">Delete</a>
+                                                
+                                            </td-->
+                                            <td><?php echo $user["first_name"]." ".$user["last_name"]; ?></td>
+                                            <td><?php echo $user["email"]; ?></td>
+<!--
+                                            <td><?php echo $user["role"]; ?></td>
+-->
+                                            <td><?php echo $user["salary"]; ?></td>
+                                            <td><?php echo $working_days; ?></td>
+                                            <td><?php
+																						$per_day_salary = $user["salary"]/$days_in_month;
+                                            $final_ctc = $working_days*$per_day_salary;
+																						echo number_format($final_ctc,2);
+                                            ?></td>
+                                            
+                                            <!--td><?php echo date("F j, Y, g:i a", $user["created_time"]); ?></td>
+                                            <td><?php echo ($user["last_logged_in"] != '') ? date("F j, Y, g:i a", $user["last_logged_in"]) : "User has not logged in yet"; ?></td-->
+                                        </tr>
+                                    <?php } ?>
+                                    </tbody>
+                                </table>
+                            </form>
+
+                        </div>
+							</div>
+					</section>
+			</div>
+		</div>
+		
+	</section>
+</section>
+
+<div id="updateAttendance" class="modal fade" data-backdrop="static" data-keyboard="false" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header background-green">
+				
+				<div class="row">
+					<div class="col-sm-10 col-xs-12">
+						<h4 id="modalTitle" class="modal-title" style="color: #000;">Attendance - <span class="sel_date"></span></h4>
+					</div>
+				
+					<div class="col-sm-2 col-xs-12">
+						<a href="javascript:void(0)" data-dismiss="modal" class="" title="Close modal" style="float:right;font-size: 19px;margin-right: 10px;color:#333"><i class="fas fa-window-close"></i></a>
+					</div>
+				</div>
+				
+				
+			</div>
+			<div id="modalBody" class="modal-body service-box">
+			<form id='frmAttendance'>
+			
+				<input type="hidden" name="attendance_id"  id="attendance_id">
+			
+				<div class="row">					
+					<div class="col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label class="control-label" for="textfield">Check In Time</label>
+							<div class="controls">
+								<input class="input-xlarge form-control " name="checkin" id="checkin" type="text" autocomplete="on" value="09:30:00">
+							</div> 							
+						</div>
+					</div>		
+					<div class="col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label class="control-label" for="textfield">Check Out Time</label>
+							<div class="controls">
+								<input class="input-xlarge form-control " name="checkout" id="checkout" type="text" autocomplete="on" value="18:30:00">
+							</div> 							
+						</div>
+					</div>		
+					
+				</div>
+
+			</form>	
+			</div>
+			
+			<div class="modal-footer">				
+	
+				<button type="button" class="btn btn-success atten_submit" ><i class="far fa-edit"></i> Update</button>
+
+				<button type="button" class="btn btn-normal" data-dismiss="modal" title="Close modal"><i class="fa fa-times"></i> Close</button>			
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+	$(function()
+	{
+    $('.date-picker').datepicker({
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'MM yy',
+        onClose: function(dateText, inst) { 
+          $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+          newList();
+        }
+    });
+	});
+
+	$(function()
+	{
+		$(".edit_attendance").click(function()
+		{
+			var id = $(this).attr("data-id");
+			var date = $(".adate"+id).html();
+			var checkin = $(".acheckin"+id).html();
+			var checkout = $(".acheckout"+id).html();
+
+			$("#attendance_id").val(id);
+			$(".sel_date").html(date);
+			$("#checkin").val(checkin);
+			$("#checkout").val(checkout);
+			
+			$("#updateAttendance").modal('show');
+			
+		});
+
+		$(".delete_attendance").click(function()
+		{
+			if (!confirm("Are you sure to delete attendance?") ) {
+				return false;	
+			}			
+			var id = $(this).attr("data-id");
+			$.ajax({
+				type:"POST",
+				url: "<?php echo base_url() ?>member/deleteAttendance",
+				data: { "attendance_id": id },
+				success: function (res)
+				{
+					if(res=="login_required")
+					{
+						var url = "<?php echo base_url() ?>member/login";
+						window.location.href = url;
+					}
+					else
+					{
+						alert(res);
+						window.location.reload();
+					}
+				},
+			});
+			
+		});
+
+		$(".atten_submit").click(function()
+		{
+			if (!confirm("Are you sure to update attendance?") ) {
+				return false;	
+			}
+
+			var frmdata = $("#frmAttendance").serialize();
+    	
+			$.ajax({
+				type:"POST",
+				url: "<?php echo base_url() ?>member/updateAttendance",
+				data: frmdata,
+				success: function (res)
+				{
+					if(res=="login_required")
+					{
+						var url = "<?php echo base_url() ?>member/login";
+						window.location.href = url;
+					}
+					else
+					{
+						alert(res);
+						window.location.reload();
+					}
+				},
+			});
+		});
+			
+		$(".check_in").click(function()
+		{
+			if (!confirm("Are you sure to Check In for the day?") ) {
+				return false;	
+			}
+    		
+			$.ajax({
+				type:"POST",
+				url: "<?php echo base_url() ?>member/checkIn",
+				success: function (res)
+				{
+					if(res=="login_required")
+					{
+						var url = "<?php echo base_url() ?>member/login";
+						window.location.href = url;
+					}
+					else
+					{
+						alert(res);
+						window.location.reload();
+					}
+				},
+			});
+		});
+
+		$( ".check_out" ).click( function()
+		{		
+			if ( !confirm("Are you sure to Check Out for the day?") )
+			{
+				return false;	
+			}		
+		
+			$.ajax({
+				type:"POST",
+				url: "<?php echo base_url() ?>member/checkOut",
+				success: function (res)
+				{			    
+					if(res=="login_required")
+					{
+						var url = "<?php echo base_url() ?>member/login";
+						window.location.href = url;
+					}
+					else
+					{						
+						alert(res);
+						window.location.reload();
+					}			
+				},
+			});
+		});
+			
+	});
+   	
+	var checkAll = false;
+	
+	function newList()
+	{
+		var us = $("#own").val();
+		var startDate = $("#startDate").val();
+		var url = "<?php echo base_url() ?>member/payroll/?own="+us+"&date="+startDate;
+		window.location.href = url;
+	}
+
+	function selectAll(){
+			if (checkAll){
+					$('#record_list_table input[type="checkbox"]').prop("checked", false);
+					$("#checkboxSelect").removeClass( "btn-danger" ).addClass( "btn-primary" );
+					$('#checkboxSelect').text("Select All");
+					checkAll = false;
+			} else {
+					$('#record_list_table input[type="checkbox"]').prop("checked", true);
+					$("#checkboxSelect").removeClass( "btn-primary" ).addClass( "btn-danger" );
+					$('#checkboxSelect').text("Deselect All");
+					checkAll = true;
+			}
+	}
+
+	function actionOnUser(uid, uname, action, actionText){
+			var url = '<?php echo base_url() ?>UserManagement/?ac=' + action + '&uid=' + uid;
+			if (confirm("Are you sure that you want to " + actionText + " " + uname + "?")) {
+					window.location.href = url;
+			}
+	}
+
+	function bulkActionOnUser(action,actionText)
+	{
+		var uids = '';
+		$("input:checkbox:checked").each(function()
+		{
+			var id = $(this).val();
+			uids += (uids == '') ? id : ("," + id);
+		});
+		if (uids == '')
+		{
+			alert("No user has been selected. Please select an user first.");
+			return;
+		}
+
+		if(action=='update')
+		{
+
+			$("#attendance_id").val(uids);
+
+			$("#updateAttendance").modal('show');
+			
+		}
+		else if(action=='delete')
+		{
+			if(confirm("Are you sure that you want to delete these selected attendance?"))
+			{
+				var id = uids;
+				$.ajax({
+					type:"POST",
+					url: "<?php echo base_url() ?>member/deleteAttendance",
+					data: { "attendance_id": id },
+					success: function (res)
+					{
+						if(res=="login_required")
+						{
+							var url = "<?php echo base_url() ?>member/login";
+							window.location.href = url;
+						}
+						else
+						{
+							alert(res);
+							window.location.reload();
+						}
+					},
+				});
+			}	
+		}else if(actionText == 'activate' || actionText || 'deactivate')
+		{
+			if(confirm("Are you sure that you want to " + actionText + " this users ?"))
+			{
+				var id = uids;
+				$.ajax({
+					type:"POST",
+					url: "<?php echo base_url() ?>member/usersDeactivate",
+					data: { "user_ids": id ,"action":action },
+					dataType:"json",
+					success: function (res)
+					{
+						window.location.reload();
+					},
+					error:function()
+					{
+						window.location.reload();
+					}
+				});
+			}
+		} 
+
+		
+	}
+
+	$(document).ready(function() {
+			$('#dynamic-table').dataTable( {
+					"pageLength": 25,
+					"aaSorting": [[0,'desc']],
+					"aLengthMenu": [[25, 50, 100, -1], [25, 50, 100, "All"]]
+			} );
+	} );
+
+</script>

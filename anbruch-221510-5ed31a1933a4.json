@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "anbruch-221510",
+  "private_key_id": "5ed31a1933a4d42d78360d7bef9ef27ad765f8d7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCnMMVJA/RXZLX0\nYuyUC2kNK6/KTHLZTV17+r6ttn6fJJsp26XRjCpSP6exXqeYzWZ6NeEkN8gS9Gy9\nqj3Y6XQcX2WWFl+YnEqFkjT5IAYXB3F6rGPseBZTwPDE2WaMRj2qrmfRBNJ2iobI\na/oU7Xx2s6QppptRzKo01fBOVPA8g5sEUG4eFtFmXZUf0gnK+dxAd8ROGLBXt6yx\nRLKhb/QL3wvpoXD9ttTkJ9jQGpIRU7uDv+mCF3HmN8IGvHb3VmDId290LfQTUa5z\nXLgeoCT32D4gZeCaoRl9YYmXKvQvx3DY/DV/XadmhKsXV1gtjb7k/7Umij46Tkgy\nxZR6cqFHAgMBAAECggEAEdQJDZ6u1QznvD46RRUsaBui/LsHOjXeRKS55ZNC0Fya\ncS27cmt0bd3c13SlAY3RojGRpweNvbuzxsvbGYDXgVkI36bWHdN4vOKY5IHuNFF2\nX+L3KtWpZ9f4tL0MCuRImiVL68WMXdiqw7+D5OxoK84/MLPT9zaQZd70Z532GjWw\nUQ9uD7YGEdBHJzHgEQVVj2FSIuUCnq3Wwaa5ZMBLHpL0DJ8nltdSRBMt+ED5qK1j\nkinhYubKVAlzr08Drxa4K8gAxe151yxip7+NYqQAZBqyPAUGSETnjEhbqSQPdR6u\nOoVj9V3dnf/sVVm1BKrLS9KPSzkOLJIjnzVizIPuvQKBgQDWZBaXLLI6K8R/WcUO\nPWZSB6NhzrKuGj4azyBDC/57gRohNF1j1Qw4Czv/poorzooFBaTLA89E8dtz+jaw\nGNYhz/nU9HK7OZVkFxMxvnz003RaXP2rF4O/U7CFfdq9e5YX7GIUS15/CMyF1NyW\n3NE/bh8zQY+fijJIx0euXKiEUwKBgQDHo4zlt/hCwyqM5o9rED6yuovolGtuAN6Q\nyOdjPWRvTCUR/iMOkb9cTmaeE/jEH7FvcZRnkCIkwWCeiY6pB2dYZJo6p6aSAaMq\n3uhtjPEqm13QlCk/HgErvmajOgRrVj72KHQpauCW1WlgGS0HFbrLvtOlO80p8Di1\nuQEFfrVQvQKBgQDSs3FER+gtpYArzPUOxqc97UXURUl0NFRfErtZSXtktAATLByw\nldy5Y8kmuu1GmmkpAF/yKh9VWgFc3UdMEEy61GRrt4benHxG7yqtE9JI51yNxqCD\nust/iOeOep805DYh8u59lYkcfnBLA2V8Wy7HERpWzJMzr6U1w6yeH3B7AwKBgDZx\nE2tR0BHkxyXFejboJzD2TlEOqH1HH2q8Xt1hUJJJYZKWi1jdxiGV/8X8DErvmaOa\nha34UFdVpNOXD6BotHYWeTiln3cRmz2FrDyzwtCrrdnDjbv4orkbI0JAABSFYIYg\nYg0paDW53RKnyu+zrU0CrRTSShC1wcFMwkqNU0TBAoGBAKiRzuAaeR9hzA9qad7e\nLJQJ5wU+xtM2mnXpdRLH+HjmD3zzUC5LjnVnQ2ZyoHDrggk6h7scJA9Mex5O8xKk\nDCsdl/Orbnzo4xNDmBbD2tRp9Nvr/hFSLaZVFv51lcGAH2dPDfGmHocrzlq1M3gD\n9K72gz4CbSuQLFfPTgOmf0cK\n-----END PRIVATE KEY-----\n",
+  "client_email": "anbruch-gmail-api@anbruch-221510.iam.gserviceaccount.com",
+  "client_id": "102479778346228208364",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/anbruch-gmail-api%40anbruch-221510.iam.gserviceaccount.com"
+}

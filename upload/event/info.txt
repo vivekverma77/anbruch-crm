@@ -1,0 +1,12 @@
+
+wp-admin
+admin - trackercore_4bf5fb
+psd - KGP%%ybndsJ!Osvh
+
+
+
+SFTP
+
+host - tracker-core.com
+user - dh_5xttn7  
+pass - !W^v5CdA

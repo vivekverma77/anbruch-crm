@@ -1,0 +1,90 @@
+
+body {font-family:Gilroy; background-color:#191919; color:#fff;}
+
+nav {position:relative;}
+nav .nav-btn {display:flex; position:absolute; top:0; right:0;}
+nav .nav-btn div {width:fit-content; padding:10px 15px;}
+nav .nav-btn div a {color:#fff; font-size:14px; font-weight:600;}
+nav .nav-btn div a i {margin-right:5px; font-size:18px;}
+nav .nav-btn .search {margin-right:10px;}
+
+#banner .banner-centent {color:#fff; margin-top:36%;}
+#banner .banner-centent h1 {font-size:53px; font-weight:700; letter-spacing:4px; margin:15px;}
+#banner .banner-centent h4 {font-size:26px; color:#d8d8d8; letter-spacing:1px; font-weight:500; margin:25px;}
+#banner .banner-centent p { font-size: 17px; }
+#banner .banner-centent .banner-ntn { margin-top: 50px; }
+#banner .banner-centent .btn {color:#ffff; font-size:15px; font-weight:500; letter-spacing:1px; width:160px; margin:32px 10px;}
+#banner .banner-centent .watch {background-color:#ff5a01;}
+#banner .banner-centent .learn {background-color:#595959;}
+
+#welcome .welcome-video iframe {border-radius:8px; margin-top:-65px; max-width:100%;}
+#welcome .welcome-text h4 {font-size:20px; color:#ff5a01;}
+#welcome .welcome-text h1 {font-size:36px; font-weight:600; margin:12px 0;}
+#welcome .welcome-text p {font-size:15px;}
+#welcome .welcome-text .btn {color:#fff; font-size:15px; letter-spacing:1px; font-weight:500; background-color:#ff5a01; width:155px; margin-top:18px;}
+#welcome {margin-bottom:12%;}
+#welcome .welcome-text div {margin-top:35px;}
+
+#video h2 {font-size:32px; font-weight:600; letter-spacing:4px; margin:40px;}
+#video .box h5 {font-size:20px; font-weight:600; letter-spacing:2px;}
+#video .box p {color:#ddd; font-size:15px; letter-spacing:0.5px;}
+#video .box img {border-radius:6px; max-width:100%; height:auto;}
+#video .box {position:relative; margin:15px 0;}
+#video .box .p-text {position:absolute; width:-webkit-fill-available; bottom:0;}
+#video {margin-bottom:12%;}
+
+#testimony {margin-bottom:7%;}
+#testimony h2 {font-weight:600; letter-spacing:4px; margin:30px;}
+#testimony .content {background-color:#252525; border:2px solid; border-radius:5px; padding:30px; margin:20px 0;}
+#testimony .content p {color:#ddd;}
+#testimony .content .person {display:flex; margin-top:50px;}
+#testimony .content img {border-radius:50%; margin:0 10px;}
+#testimony .content h4 {font-size:20px;}
+#testimony .content .name {margin-top:8px; margin-left:10px;}
+
+#footer {border-top:1px solid #444; padding-top:6%;}
+#footer .foot-about p {font-size:15px; margin:25px 0; color:#ddd;}
+#footer .foot-head h6 {font-size:18px; font-weight:600; letter-spacing:1px; margin:12px 0;}
+#footer .contact-ul {list-style:none; padding:0; margin-top:35px;}
+#footer .contact-ul li {position:relative; font-size:15px; color:#ddd; padding:0px 0 15px 30px;}
+#footer .contact-ul li i {position:absolute; font-size:16px; color:#fff; left:0; top:2px;}
+#footer .foot-contact {width:fit-content; margin:0 auto;}
+#footer .foot-mail form {margin-top: 35px; color:#ddd;}
+#footer .foot-mail form input {background-color:#252525; height:40px; border-right:0;}
+#footer .foot-mail form span {background-color:#252525; color:#fff; border-left:0;}
+#footer .foot-bottom {display:flex; color:#ddd; font-size:14px; border-top:1px solid #444; padding:25px 0 10px; margin-top:8%;}
+#footer .social a {color:#aeaeae; letter-spacing:20px;}
+
+@media (max-width:991px) {
+	body .container {max-width:100%; padding:0 5%;}
+	#testimony .box:last-child {display:none;}
+	#welcome .welcome-video iframe {margin-top:40px;}
+	#welcome {text-align:center;}
+	#banner .banner-centent h1 {font-size:40px;}
+	#banner  {height:550px; max-height:100%;}
+}
+
+@media (max-width:767px) {
+	#banner .brand {text-align:left !important;}
+	#banner .brand img {width:135px; height:auto;}
+	nav .nav-btn .search {margin:0;}
+	nav .nav-btn div {padding:10px;}
+	nav .nav-btn div a {font-size:12px; font-weight:500;}
+	#banner .banner-centent h1 {font-size:32px; letter-spacing:1px;}
+	#banner .banner-centent h4 {font-size:18px; margin:20px;}
+	#banner .banner-centent .btn {margin:20px 10px; width:auto; font-size:13px; padding:6px 15px;}
+	#banner {height:auto; padding:15px 15px 8%;}
+	#welcome .welcome-text h1 {font-size:28px;}
+	#welcome .welcome-text .btn {width:auto; font-size:13px; padding:6px 20px;}
+	#video h2 {font-size:28px; margin:30px;}
+	#testimony h2 {font-size:28px; margin:25px;}
+	#testimony .content {max-width:400px; margin:20px auto;}
+	#footer .foot-about {text-align:center;}
+	#footer .foot-mail {max-width:500px; margin:30px auto; text-align:center;}
+	#welcome .welcome-video iframe {height:280px; max-height:100%;}
+	#banner .container {padding:0;}
+	nav .nav-btn div a i {margin-right:2px; font-size:15px;}
+	#footer .foot-bottom {display:block; text-align:center;}
+}
+
+

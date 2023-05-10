@@ -1,0 +1,250 @@
+<!--
+users cancel booking
+-->
+<!doctype html>
+<html>
+<head>
+<link href="<?php echo base_url() ?>static/css/my.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery.timepicker.min.css">
+<style>
+    .panel-body {
+    padding: 15px;
+    margin: 35px 0 0 0;
+}
+    .fraction {
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        border: 3px solid #1FB5AD;
+        border-radius: 500px;
+        margin: 0 10px;
+        align-content: center;
+        vertical-align: middle;
+        cursor: pointer;
+        }
+    .centered {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    
+    .period .fraction .full {
+    display: none;
+}
+
+<!--  time -->
+
+.spots {
+    max-width: 380px;
+}
+ol, ul {
+    list-style: none;
+}
+.spots .spot {
+    font-size: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 10px;
+}
+/*
+.header {
+    text-align: center;
+    margin: 30px 20px;
+}
+*/
+.wrapper.narrow {
+    max-width: 380px;
+}
+/*
+.wrapper {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 860px;
+}*/
+.centered, .text-center {
+    text-align: center;
+}
+.mbm, .mvm, .mam {
+    margin-bottom: 20px;
+}
+.mbs, .mvs, .mas {
+    margin-bottom: 10px;
+}
+.col3of5 {
+    width: 60%;
+}
+h2 {
+    font-size: 18px;
+    line-height: 1.3em;
+}
+.pull-right, .text-right {
+    text-align: right;
+}
+.col2of5 {
+    width: 40%;
+}
+label.switch {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+label.switch input {
+    display: none;
+}
+.mbl, .mvl, .mal {
+    margin-bottom: 30px;
+}
+.seprator {
+    position: relative;
+    display: none;
+    margin: 19px 0 27px 0;
+    padding-top:5px;
+    text-align: center;
+    border-top: 1px solid #dadada;
+}
+.spots .spot .status {
+    display: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #00A2FF;
+}
+.spots .spot .confirm-button {
+    display: none;
+}
+.time-button, .confirm-button {
+    font-size: 14px;
+    line-height: 1.3em;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 18px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.booking .row{
+    display:none;
+}
+.booking .sel-detail{
+    display:block;
+    }
+    
+    .previous_week, .next_week  {
+    font-size: 40px;
+    margin-top: 18px;
+    cursor:pointer;
+    }
+    .day.js-show-picker {
+    margin: 17px 0;
+}
+#heading{ font-size:  23px;font-weight: 800;letter-spacing: 0.4;padding:  10px;background: #1FB5AD;color: white;}
+.form-horizontal .control-label{ padding-top: 7px;margin-bottom: 0;text-align: left;font-size: 16px;font-family: sans-serif;letter-spacing: 0.4px; }
+</style>    
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.timepicker.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<!--main content start-->
+</head>
+<body>
+<section id="main-content">
+    <section class="wrapper">
+        <!-- page start-->
+        <section class="panel">
+            
+            <div class="panel-body booking">    
+                <div class="row sel-detail">
+                    <div class="main-region js-consent-lockable" id="main-region">
+                        <div class="solo">
+                            <div class="header">
+
+                                <div class="js-profile-region">
+                                    <div class="boxNIU text-center small-container">
+                                        <div class="title-wrapper">
+                                            <div class="mbs phs popover-holder">
+                                                <div class="increased popover-toggle silent" style="padding: 5px 0px;">
+                                                    <h2 style="font-size: 25px; font-weight: 500;"><?php if(isset($_GET['action']) && $_GET['action'] ==true){ echo "Praposal Sent Successfully"; }
+                                                        else
+                                                            {echo $message;} ?></h2>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="mbl">
+                        </div>
+                        
+                    </div>
+                </div>
+          </div>
+                        
+                        
+     
+
+         
+        </section>
+        <!-- page end-->
+        <div class="container" style="text-align: center;">
+            <form id="suggestionBox" name="suggestionBox" type="POST" class="form-horizontal" action="<?php echo base_url('booking/addPraposedSuggestion');?>">
+                <input type="hidden" name="bid" id="booking_id" value="<?php echo $booking_id; ?>">
+                <input type="hidden" name="record_id" id="record_id" value="<?php echo $record_id; ?>">
+                <div class="row" style="text-align: center;margin-bottom: 30px;">
+                     <h1  id="heading">Prapose a New Suggestion Time</h1>
+                </div>
+                <div class="row" style="margin-bottom: 15px;">
+                    <div class="col-sm-6 col-xs-12" style="width: 50%;">
+                        <div class="form-group">
+                           <label class="control-label col-sm-2" for="email">Date:</label>
+                            <div class="col-sm-10">
+                                <input class="input-xlarge form-control datepicker" name="st_date" id="start_date2" type="text" placeholder="MM/DD/YYYY" required value="" autocomplete="off">                                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-12 start_time_dv" style="width: 50%;">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="start_time">Time:</label>
+                            <div class="col-sm-10">
+                                <input class="input-xlarge form-control timepicker" name="st_time" id="start_time" value="" type="text" placeholder="HH:MM" required autocomplete="off">                                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-sm-1" for="comment">Comment:</label>
+                        <div class="col-sm-11" style="margin-right: 0px;">
+                            <textarea class="form-control" name="cmt" rows="5" id="comment" style="width: 98%;margin-left:  10px;"></textarea> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                   <div class="form-group">
+                        <button type="submit" name="submit" class="btn btn-success update_schedule_timing2" style="border-radius: 0;font-weight: 700;margin: 4px 10px;background-color: #646464;padding: 8px 50px;border: none;">Send Suggestion</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</section>
+</body>
+<!--main content end-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".datepicker").datepicker();
+        $("input.timepicker").timepicker({
+            timeFormat: 'h:mm a',
+            interval: 15,
+        });
+    });
+</script>
+</html>
+
+
